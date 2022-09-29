@@ -1,4 +1,5 @@
-﻿void Zadacha_0()
+﻿
+void Zadach_0()
 {
 //Вести число N и показать все четные числа от 0 до N
 Console.WriteLine("Введи Число");
@@ -8,11 +9,11 @@ while(number <= n)
 {
     Console.Write(number + " " );
     number += 2;
-}    
-}
-//Zadacha_0(); 
- void Zadacha_1()
- {
+} 
+}   
+ 
+void Zadacha_1()
+{
 // Напишите программу которая выводит случайное число { 10 ; 99} и показывает наибольшую цифру чиисла
 Random random = new Random();
 int number = random.Next(10, 100);
@@ -29,7 +30,7 @@ else
 {
     Console.Write(ones +   "Наибольшее Число "); 
 }       
- }
+}
 void Zadach_2()
 {
  // Напишите программу которая выводит случайное трехзначное число . и удаляет 2 цифру этого числа.
@@ -58,17 +59,19 @@ else
     Console.WriteLine($"Не Кратное,остаток = {num2 % num1 }" );
 }       
 } 
- void Zadacha_4()
- {
+void Zadacha_4()
+{
 // Напишите программу которая принимает на  вход число и проверят кратно ли оно одновременно 7 и 23
 Console.WriteLine(" Введите число");
 int num = Convert.ToInt16(Console.ReadLine());
 if(num % 161 != 0)Console.WriteLine($" Число {num} не кратное одновременно 7 и 23");
 else Console.WriteLine($" Число {num}  кратное одновременно 7 и 23" );
- }
+}
 
- // void Zadacha_5 
- // 
+  void Zadacha_5() 
+{
+ // Напишите программу которая принимает на вход два числа и проверяет.
+ // является ли одно число квадратом другого.
 Console.WriteLine( "Введите первое число");
 int num = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine( "Введите второе число");
@@ -81,3 +84,12 @@ else
 {
     Console.WriteLine("Нет");
 }
+}
+//voit DomZadacha_0()
+// Домашнее задание.Напишит программу которая принимает на вход трех 
+// значное число и на выходе показывает вторую цифру этого числа
+Console.WriteLine(" Введите трехзначное число");
+int numb = Convert.ToInt32(Console.ReadLine());
+int number = numb % 100 / 10 ;
+Console.Write(number);
+
