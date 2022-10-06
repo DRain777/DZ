@@ -335,3 +335,137 @@ for(int i = 1; i <= n; i++)
     Console.WriteLine($"{i} * {i} * {i} = {Math.Pow(i, 3)}");
 }
 }
+void Zadacha24()
+{
+//Задача 24: Напишите программу, которая
+//принимает на вход число (А) и выдаёт сумму чиселот 1 до А.
+Console.WriteLine("Введите число N ");
+int n = Convert.ToInt16(Console.ReadLine());
+int summa = 0;
+for(int i = 1; i <= n; i++)
+{
+    //Console.Write($"{i} + ");
+    summa += i;
+}
+Console.Write($"{summa}");
+}
+ void Zadacha26()
+ {
+// Задача 26: Напишите программу, которая принимает
+//на вход число и выдаёт количество цифр в числе.
+Console.WriteLine("Введите число  ");
+int n = Convert.ToInt16(Console.ReadLine());
+int current = n;
+int count = 0;
+while(current > 0)
+{
+    current = current / 10;
+    count = count + 1;
+}
+    Console.WriteLine($" Количество цифр в числе {n} = {count}");
+}
+void Zadacha26_()
+{
+int number = 555;
+int i = 0;
+while( number > 0)// сколько раз пройдет цил такое и будет значение i соответсвенно столько и цифр в числе.
+{
+    number /= 10;
+    i++;
+    Console.WriteLine($" {number} {i}" );
+}
+ Console.WriteLine(i);
+}
+void Zadacha26_string()
+{
+ int num  =557777;
+ string num2 = Convert.ToString(num);
+ Console.WriteLine(num2.Length);// команда Length вывовит количестыо цифр в числе чрез строку.
+}
+void Zadach28()
+{
+//  задача 28 напишите программу которая на входе число N и выдает 
+// произведени чисел от 1 до N
+Console.WriteLine("Введите число N ");
+int n = Convert.ToInt16(Console.ReadLine());
+int resultat = 1;
+for(int i = 1; i <= n ; i++)
+{
+    resultat = resultat * i;
+    Console.WriteLine(resultat);
+}
+}
+void Zadacha30()
+{
+//Задача 30: Напишите программу, которая
+//выводит массив из 8 элементов, заполненный
+//нулями и единицами в случайном порядке.[1,0,1,1,0,1,0,0]
+Random random = new Random();
+int size = random.Next(4, 10);
+int[] numbers = new int [size];
+Console.WriteLine(size);
+
+ FillArray(numbers );
+
+//for(int i = 1; i < size; i++)
+//{
+   // numbers[i] = random.Next(0 ,2);
+   // Console.Write(numbers[i] + "  ");// /t табуляция
+//}
+
+for(int i = 1; i < size; i++)
+{
+  Console.Write(numbers[i] + "  ");   
+}
+    Console.WriteLine();
+}
+void FillArray(int[] num )
+{
+    Random random = new Random();
+    for(int i = 1; i < num.Length; i++) // Length запрашивает длинну массива . вместо size
+{
+    num[i] = random.Next(0 ,2);
+    //Console.Write(num[i] + "  ");// /t табуляция
+}
+}
+//Zadacha30();
+void Zadacha_25Domashka()
+{
+// Задача 25: Используя определение степени числа,
+//напишите цикл, который принимает на вход два
+//натуральных числа (A и B) и возводит число A в степень B
+Console.WriteLine("Введите число A ");
+int a = Convert.ToInt16(Console.ReadLine());
+Console.WriteLine("Введите число B ");
+int b = Convert.ToInt16(Console.ReadLine());
+int proiz = 1;
+for(int i = 1; i <= b; i++)
+{
+    proiz = proiz * a;  // proiz *= a
+   // Console.WriteLine(proiz);
+}
+ Console.WriteLine($"Число{a} в степени {b} = {proiz}  ");
+}
+void Zadacha27_Domash()
+{
+    //Задача 27: Напишите программу, которая принимает на
+//вход число и выдаёт сумму цифр в числе.
+Console.WriteLine("Введите число  ");
+int number = Convert.ToInt16(Console.ReadLine());
+int summa = 0;
+while( number > 0)// Пока число больше 0 
+{
+    summa = summa + number%10;//summa += number%10) К Сумме прибовляем последнюю цифру в веденного числа
+    // Что бы получить последнюю чифру надо число поделить на %10(остаток от деления)
+    number /= 10; //число уменьшаем 
+    //Console.WriteLine(summa);
+   // Console.WriteLine(number);
+}
+Console.Write("Сумма цифр в числе" + "  " + summa);
+}
+//void Zadacha29_Domash()
+//Задача 29: Напишите программу, которая задаёт массив
+//из 8 случайных целых чисел и выводит отсортированный по модулю массив.алгоритм сортировки
+// Денис Батькович не смог решить эту задачу Сложно пока для меня,
+
+
