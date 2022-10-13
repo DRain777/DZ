@@ -45,7 +45,7 @@ void FillArray(int[] numbers)   //int minValue = 0,int maxValue = 100)
     Random random = new Random();
     for (int i = 0; i < numbers.Length; i++)
     {
-        numbers[i] = random.Next(9, 20);// minValue,maxValue
+        numbers[i] = random.Next(1, 20);// minValue,maxValue
     }
 
 }
@@ -210,23 +210,206 @@ void Zadacha36Dom()
     int summa = 0;
     for (int i = 0; i < numbers.Length; i++)
     {
-        if (numbers[i] % 2 == 1) summa += numbers[i]; 
+        if (numbers[i] % 2 == 1) summa += numbers[i];
 
     }
     Console.WriteLine($" Сумма элементов с  нечетными индексами  {summa}");
 }
 void Zadacha38Dom()
 {// Задача 38: Задайте массив вещественных чисел. 
-// Найдите разницу между максимальным и минимальным элементов массива.
-//[3,21 7,04 22,93 -2,71 78,24] -> ma
-//[3,21 7,04 22,93 -2,71 78,24] -> max = 78,24, min = - 2,71, difference = 80,95
+ // Найдите разницу между максимальным и минимальным элементов массива.
+ //[3,21 7,04 22,93 -2,71 78,24] -> ma
+ //[3,21 7,04 22,93 -2,71 78,24] -> max = 78,24, min = - 2,71, difference = 80,95
 }
 
 
+void Zadacha39()
+{  // Задача 39: Напишите программу, которая перевернёт
+   //одномерный массив (последний элемент будет на первом
+   //месте, а первый - на последнем и т.д.)
+   //[1 2 3 4 5] -> [5 4 3 2 1]
+   //[6 7 3 6] -> [6 3 7 6]
+    int size = 10;
+    int[] numbers = new int[size];
+    FillArray(numbers);
+    PrintArray(numbers);
+    ReversArray(numbers);
+    PrintArray(numbers);
+    // int maxIndex = size - 1;
+    // for (int i = 0; i < size % 2; i++)
+    // {
+    //     // (numbers[i], numbers[maxIndex - i]) = (numbers[maxIndex - i], numbers[i]);//Картэж обмен переменных
+    //     int temp = numbers[i];
+    //     numbers[i] = numbers[maxIndex - i];
+    //     numbers[maxIndex - i] = temp;
+
+    // }
+
+}
+void ReversArray(int[] numbers)// Переворот массива
+{
+    int size = numbers.Length;
+    int maxIndex = size - 1;
+    for (int i = 0; i < size % 2; i++)
+    {
+        // (numbers[i], numbers[maxIndex - i]) = (numbers[maxIndex - i], numbers[i]);//Картэж обмен переменных
+        int temp = numbers[i];
+        numbers[i] = numbers[maxIndex - i];
+        numbers[maxIndex - i] = temp;
+
+    }
 
 
 
+}
+void Zadacha40()
+{//Задача 40: Напишите программу, которая принимает на вход три
+ //числа и проверяет, может ли существовать треугольник со
+ //сторонами такой длины.
+ //Теорема о неравенстве треугольника: каждая сторона треугольника
+ //меньше суммы двух других сторон.
+    int sidea = 5;
+    int sideb = 4;
+    int sidec = 3;
 
+    if (sidea + sideb > sidec && sidea + sidec > sideb && sideb + sidec > sidea)
+    {
+        Console.WriteLine("Треугольник существует");
+    }
+    else
+    {
+        Console.WriteLine("Треугольник НЕ существует");
+    }
+}
+void Zadacha42()
+{//Задача 42: Напишите программу, которая будет преобразовывать
+ //десятичное число в двоичное.
+ //45 -> 101101
+ //3 -> 11
+ //2 -> 10
+    int number = 43;
+    string result = "";
+    while (number > 0)
+    {
+        result = number % 2 + result;// result += number%2
+        number /= 2;
+        Console.WriteLine(result);
+    }
+}
+void Zadacha42Convert()// Конвертация с Дяситичной системы в Двоичную.
+{
+    int number = 51;
+    string result = Convert.ToString(number, 2);
+    Console.WriteLine(result);
+}
+void Zadacha44()
+{
+    //Задача 44: Не используя рекурсию, выведите первые N чисел
+    //Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+    //Если N = 5 -> 0 1 1 2 3
+    //Если N = 3 -> 0 1 1
+    //Если N = 7 -> 0 1 1 2 3 5 8
+    Console.WriteLine(" Введите число N Фибоначи");
+    int size = Convert.ToInt32(Console.ReadLine());
+    int a = 0;
+    int b = 1;
+    int[] numbers = new int[size];
+    numbers[0] = a;
+    numbers[1] = b;
+    for (int i = 2; i < numbers.Length; i++)
+    {
+        numbers[i] = numbers[i - 2] + numbers[i - 1];
+    }
+    PrintArray(numbers);
+}
+void Zadacha45()
+{//Задача 45: Напишите программу, которая будет создавать
+ //копию заданного массива с помощью поэлементного копирования.
+    int size = 10;
+    int[] numbers = new int[size];
+    int[] other = new int[size];
+    FillArray(numbers);
+    PrintArray(numbers);
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        other[i] = numbers[i];
+    }
+    PrintArray(other);
+}
 
+void Test(int test = 0)     //Recursia
+{
+    if (test == 100) return;// Выход из Рекурсии
+    test++;
+    Console.WriteLine(test);
 
+    Test(test);// ++test
+}
+// Найти сумму цифр числа через Рекурсию
+void Recursia(int test = 0, int sum = 0)
+{
+    if (test == 0)
+    {
+        Console.WriteLine(sum); ;
+        return;
+    }
+    sum += test % 10;
+    test /= 10;
+    Recursia(test, sum);
+}
+void Zadacha41Domash()
+{//Задача 41: Пользователь вводит с клавиатуры M чисел. 
+ // Посчитайте, сколько чисел больше 0 ввёл пользователь.
+ //0, 7, 8, -2, -2 -> 2   1, -7, 567, 89, 223-> 3
+    Console.WriteLine(" Введите Число M ");
+    int numbers = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(" Введите Число M ");
+    int numbers1 = Convert.ToInt32(Console.ReadLine());
+    if (numbers > 0)
+    {
+        Console.WriteLine($" {numbers} Больше 0 ");
+    }
+    else
+    {
+        Console.WriteLine($" {numbers} Меньше 0 ");
+    }
+    if (numbers1 > 0)
+    {
+        Console.WriteLine($" {numbers1} Больше 0 ");
+    }
+    else
+    {
+        Console.WriteLine($" {numbers1} Меньше 0 ");
+    }
 
+}
+void Zadacha41DomashD()
+{//Задача 41: Пользователь вводит с клавиатуры M чисел. 
+ // Посчитайте, сколько чисел больше 0 ввёл пользователь.
+ //0, 7, 8, -2, -2 -> 2   1, -7, 567, 89, 223-> 3
+    Console.WriteLine(" Сколько чисел требуется ввести? ");
+    int countofnumbers = Convert.ToInt32(Console.ReadLine());
+    int count = 0;// // int[] numbers = new int[ountofnumbers];
+    for (int i = 1; i <= countofnumbers; i++)
+    {
+        Console.WriteLine($" Введите {i} число ");
+        int inputnumber = Convert.ToInt32(Console.ReadLine());
+        if (inputnumber > 0) count++; //numbers[i-1] = inputnumber
+                                      // if(inputnumber > 0) count++
+
+    }
+    Console.WriteLine($"Положительных чисел введено  {count}");
+}
+void Zadacha43Domash()
+{//Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
+ //заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+ //b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+    var (k1, b1) = (2, 5);//vereibal переменная  представляет не явную типизацию(int)
+    var (k2, b2) = (4, 9);
+    double x = (b2 - b1) / (k1 - k2);
+    x = Math.Round(x, 2);
+    double y = k1 * x + b1;
+    y = Math.Round(y, 2);
+    Console.WriteLine($"Точка пересечения А({x},{y})");
+}
+Zadacha43Domash();
