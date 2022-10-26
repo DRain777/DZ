@@ -145,10 +145,10 @@ void Zadach58_Domash()
             //     steps = rows - 1 - turn / 2;
             // else
             // steps = columns - 1- turn / 2;
-             steps = rows * ((turn+1)%2) + columns * (turn%2)-1 -turn / 2;
+            steps = rows * ((turn + 1) % 2) + columns * (turn % 2) - 1 - turn / 2;
 
-                // steps = columns - 1- turn/2;// работает только для квадратных массивов
-                int temp = changeIndexRow;
+            // steps = columns - 1- turn/2;// работает только для квадратных массивов
+            int temp = changeIndexRow;
             changeIndexRow = changeIndexColumn;
             changeIndexColumn = -temp;
             turn++;
@@ -160,4 +160,242 @@ void Zadach58_Domash()
     PrintArray(matrix);
 
 }
-Zadach58_Domash();
+
+void Zadach63()
+{//Задача 63: Задайте значение N. Напишите программу, которая выведет
+ // все натуральные числа в промежутке от 1 до N.
+ // N = 5 -> "1, 2, 3, 4, 5"
+ // N = 6 -> "1, 2, 3, 4, 5, 6"
+    Console.WriteLine(" Введите значения N");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int counter = 0;
+    Reccursia(n);
+    //FindNatural();
+    //int numbers = 0;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     numbers++;
+    //     Console.Write($" {numbers} ");
+
+    // }
+    // Рекурсия
+    //     void FindNatural( int n)
+    //     {
+    //         a++;
+
+    //          Console.Write(a);
+    //          Console.Write(" ");
+    //         if (a >= n)
+    //         {
+    //             return;
+    //         }
+    //         FindNatural();
+    // }
+    void Reccursia(int n, int counter = 0)
+    {
+        counter++;
+        Console.Write(counter);
+        if (counter >= n)
+            return;
+        Reccursia(n, counter);
+
+
+
+
+    }
+}
+void Zadacha65()
+{//Задача 65: Задайте значения M и N. Напишите программу, которая
+ // выведет все натуральные числа в промежутке от M до N.
+ // M = 1; N = 5 -> "1, 2, 3, 4, 5"
+ // M = 4; N = 8 -> "4, 6, 7, 8" 
+    Console.WriteLine(" Введите значения M");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(" Введите значения N");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int counter = m - 1;
+    Reccursia(m, n, counter);
+    void Reccursia(int m, int n, int counter)
+    {
+
+        counter++;
+        Console.Write(" ");
+        Console.Write(counter);
+        if (counter >= n)
+            return;
+        Reccursia(m, n, counter);
+
+
+    }
+
+}
+void Zadacha67()
+{//Задача 67: Напишите программу, которая будет принимать на вход число и
+ // возвращать сумму его цифр.
+ // 453 -> 12
+ // 45 -> 9
+    Console.WriteLine("Введите число  ");
+    int number = Convert.ToInt16(Console.ReadLine());
+    int sum = 0;
+
+    Console.WriteLine(SumNuber(number));
+}
+
+
+int SumNuber(int number, int sum = 0)
+{
+    if (number == 0)
+    {
+        return sum;
+    }
+    sum = sum + number % 10;
+    number = number / 10;
+    return SumNuber(number, sum);
+
+}
+void Zadach69()
+{//Задача 69: Напишите программу, которая на вход принимает два числа A и B, и
+ //возводит число А в целую степень B с помощью рекурсии.
+ //A = 3; B = 5 -> 243 (3⁵)
+ //A = 2; B = 3 -> 8 
+    int a = 5;
+    int b = 4;
+    int result = 1;
+    Pow(a, b, result);
+    // for (int i = 0; i < b; i++)
+    // {
+    //     result = result * a;
+    // }
+    // Console.WriteLine($"{a}^{b} ={result}");
+
+}
+void Pow(int a, int b, int result = 1)
+{
+    if (b == 0)  //(i >= b)
+    {
+        Console.WriteLine($"{a}^{b} ={result}");
+        return;
+    }
+    result = result * a;
+    b--;        //i++
+    Pow(a, b, result); // i
+}
+void Zadach64Domash()
+{//Задача 64: Задайте значения M и N. Напишите рекурсивный метод, 
+ //который выведет все натуральные числа кратные 3-ём в промежутке от M до N.
+ //N = 5 -> "5, 4, 3, 2, 1"
+ //N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+
+    Console.WriteLine(" Введите значения N");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        count++;
+        if (count % 3 == 0)
+        {
+            Console.WriteLine(count);
+        }
+    }
+
+
+
+
+}
+void Zadach64Domashv2()
+{//Задача 64: Задайте значения M и N. Напишите рекурсивный метод, 
+ //который выведет все натуральные числа кратные 3-ём в промежутке от M до N.
+ //N = 5 -> "5, 4, 3, 2, 1"
+ //N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+    Console.WriteLine(" Введите значения N");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(" Введите значения N");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    int counter = m;
+    Reccursia(n, counter);
+
+    void Reccursia(int n, int counter)
+    {
+
+
+        counter++;
+        if (counter >= n)
+        {
+            return;
+        }
+        if (counter % 3 == 0)
+        {
+            Console.WriteLine(counter);
+
+        }
+
+        Reccursia(n, counter);
+
+    }
+}
+void Zadach66Domashv2()
+{//Задача 66: Задайте значения M и N. Напишите программу,
+ // которая найдёт сумму натуральных элементов в промежутке от M до N.
+ //M = 1; N = 15 -> 120
+ //M = 4; N = 8. -> 30
+ Console.WriteLine(" Введите значения N");
+    int m = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine(" Введите значения N");
+    int n = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    int sum = 0;
+    GapNumberSum(m, n, sum);
+    void GapNumberSum (int m, int n, int sum)
+{
+    if (m > n) 
+    {
+        Console.WriteLine($"Сумма натуральных элементов в промежутке от M до N: {sum}"); 
+        return;
+    }
+    sum = sum + (m++);
+    GapNumberSum(m, n, sum);
+}
+}
+void Zadach68Domash()
+{
+// {Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии.
+//  Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+Console.Write("Введите число M: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+AkkermanFunction(m,n);
+void AkkermanFunction(int m, int n)
+{
+    Console.Write(Akkerman(m, n)); 
+}
+int Akkerman(int m, int n)
+{
+    if (m == 0)
+    {
+        return n + 1;
+    }
+    else if (n == 0 && m > 0)
+    {
+        return Akkerman(m - 1, 1);
+    }
+    else
+    {
+        return (Akkerman(m - 1, Akkerman(m, n - 1)));
+    }
+}
+
+}
+Zadach68Domash();
+
+
+
+
+
+
+
+
+
